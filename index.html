@@ -13,7 +13,8 @@
         :root {
             --primary: #FF6B00;
             --secondary: #f3f5af;
-            --bg-dark: #0A0A0A;
+            /* --bg-dark: #0A0A0A; */
+            --bg-dark: rgb(10, 5, 23);
             --bg-card: #141414;
             --text: #FFFFFF;
             --blur-strength: 3px;
@@ -35,8 +36,8 @@
             color: var(--text);
             line-height: 1.6;
             background-image: 
-                linear-gradient(rgba(243, 245, 175, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(243, 245, 175, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(243, 245, 175, 0.09) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(243, 245, 175, 0.09) 2px, transparent 2px);
             background-size: 30px 30px;
         }
 
@@ -48,10 +49,11 @@
         header {
             padding: 4rem 2rem;
             text-align: center;
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
             position: relative;
             overflow: hidden;
-            background: rgba(10, 10, 10, 0.8);
+            /* background: rgba(10, 10, 10, 0.8); */
+            background: var(--bg-dark);
         }
 
         .title {
@@ -70,7 +72,6 @@
             font-variation-settings:
               "EDPT" 100,
               "EHLT" 12;
-
             /* font-family: "IBM Plex Mono", monospace;
             font-weight: 700;
             font-style: bold;
@@ -107,7 +108,7 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 
-                0 0 var(--bloom-strength) rgba(255, 107, 0, 0.1),
+                0 0 var(--bloom-strength) rgba(255, 107, 0, 0.5),
                 0 0 var(--blur-strength) var(--primary);
         }
 
@@ -131,8 +132,8 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 
-                0 0 calc(var(--bloom-strength) * 1.5) rgba(255, 107, 0, 0.2),
-                0 0 calc(var(--blur-strength) * 2) var(--primary);
+                0 0 calc(var(--bloom-strength) * 3) rgba(255, 107, 0, 0.5),
+                0 0 calc(var(--blur-strength) * 3) var(--primary);
         }
 
         .project-card:hover::after {
@@ -166,17 +167,45 @@
         .project-link {
             color: var(--secondary);
             text-decoration: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             text-shadow: 0 0 calc(var(--blur-strength) * 0.5) var(--secondary);
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .project-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--secondary);
+            box-shadow: 0 0 5px var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .project-link:hover::after {
+            width: 100%;
+        }
+
+        /* Optional: you can add this to make the arrow move slightly on hover */
+        .project-link span {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover span {
+            transform: translateX(5px);
         }
 
         footer {
-            background: rgba(20, 20, 20, 0.9);
+            background: var(--bg-dark);
             padding: 2rem 1rem;
             text-align: center;
-            border-top: 2px solid var(--primary);
+            border-top: 3px solid var(--primary);
             width: 100%;
             overflow: hidden;
         }
@@ -250,9 +279,9 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://github.com/collidingscopes" target="_blank">GITHUB::CONNECTION</a>
-            <a href="https://twitter.com/measure_plan" target="_blank">X::FEED</a>
-            <a href="https://instagram.com/stereo.drift" target="_blank">INSTAGRAM::FEED</a>
+            <a href="https://github.com/collidingscopes" target="_blank">GITHUB::CODE</a>
+            <a href="https://twitter.com/measure_plan" target="_blank">X::THOUGHTS</a>
+            <a href="https://instagram.com/stereo.drift" target="_blank">INSTAGRAM::ART</a>
             <a href="https://buymeacoffee.com/stereodrift" target="_blank">COFFEE::&#9829;</a>
           </div>
     </footer>
