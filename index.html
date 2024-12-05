@@ -174,15 +174,22 @@
 
         footer {
             background: rgba(20, 20, 20, 0.9);
-            padding: 2rem;
+            padding: 2rem 1rem;
             text-align: center;
             border-top: 2px solid var(--primary);
+            width: 100%;
+            overflow: hidden;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .social-links a {
@@ -191,6 +198,7 @@
             font-size: 1.2rem;
             transition: color 0.3s ease, text-shadow 0.3s ease;
             text-shadow: 0 0 var(--blur-strength) var(--primary);
+            white-space: nowrap;
         }
 
         .social-links a:hover {
@@ -205,6 +213,25 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-links a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            footer {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
