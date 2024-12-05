@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Ang Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #f3f5af;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --text: #FFFFFF;
+            --blur-strength: 3px;
+            --bloom-strength: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: monospace; */
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(243, 245, 175, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(243, 245, 175, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        @keyframes holoShimmer {
+            0%, 100% { text-shadow: 0 0 10px rgba(243, 245, 175, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 107, 0, 0.7); }
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+            background: rgba(10, 10, 10, 0.8);
+        }
+
+        .title {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            /* animation: holoShimmer 3s ease-in-out infinite; */
+            will-change: text-shadow;
+
+            font-family: "Nabla", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+              "EDPT" 100,
+              "EHLT" 12;
+
+            /* font-family: "IBM Plex Mono", monospace;
+            font-weight: 700;
+            font-style: bold;
+            font-style: italic; */
+        }
+
+        .subtitle {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            max-width: 470px;
+            margin: 0 auto;
+            text-shadow: 0 0 var(--blur-strength) var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .project-card {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid var(--primary);
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 
+                0 0 var(--bloom-strength) rgba(255, 107, 0, 0.1),
+                0 0 var(--blur-strength) var(--primary);
+        }
+
+        .project-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                #10bb7a,
+                #116d91,
+                #9a0b98,
+                #9c1645
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            filter: blur(var(--blur-strength));
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 0 calc(var(--bloom-strength) * 1.5) rgba(255, 107, 0, 0.2),
+                0 0 calc(var(--blur-strength) * 2) var(--primary);
+        }
+
+        .project-card:hover::after {
+            opacity: 0.6;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 350px;
+            background: #232323;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-title {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 var(--blur-strength) var(--primary);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-link {
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 0 0 calc(var(--blur-strength) * 0.5) var(--secondary);
+        }
+
+        footer {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 0 0 var(--blur-strength) var(--primary);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 calc(var(--bloom-strength) * 1.5) var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">Alan Ang</h1>
+        <p class="subtitle">Doing trivial things in trivial times :: projects in finance / art / music / code</p>
+    </header>
+
+    <main class="container">
+        <div class="projects-grid">
+            <!-- Project cards will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/collidingscopes" target="_blank">GITHUB::CONNECTION</a>
+            <a href="https://twitter.com/measure_plan" target="_blank">X::FEED</a>
+            <a href="https://instagram.com/stereo.drift" target="_blank">INSTAGRAM::FEED</a>
+            <a href="https://buymeacoffee.com/stereodrift" target="_blank">COFFEE::&#9829;</a>
+          </div>
+    </footer>
+
+    <script>
+        const projects = [
+            {
+                title: "The Measure of a Plan",
+                image: "/assets/TMOAP.gif",
+                description: "Free resources and tools for personal finance, visited by hundreds of thousands of people around the world",
+                url: "https://themeasureofaplan.com/"
+            },
+            {
+                title: "Shades Drawn",
+                image: "/assets/shadesDrawn.png",
+                description: "Music inspired by the sounds of Hong Kong",
+                url: "https://www.youtube.com/@shades-drawn"
+            },
+            {
+                title: "Video-to-ASCII",
+                image: "/assets/ascii.gif",
+                description: "Turn videos into ASCII pixel art",
+                url: "https://collidingscopes.github.io/ascii/"
+            },
+            {
+                title: "Shape Shimmer",
+                image: "/assets/shapeShimmer.gif",
+                description: "Turn photos into funky wave animations",
+                url: "https://collidingscopes.github.io/shimmer/"
+            },
+            {
+                title: "Image Mage",
+                image: "/assets/imageMage.png",
+                description: "Remix and reimagine your photos",
+                url: "https://imagemageage.github.io"
+            },
+            {
+                title: "Stereo Drift",
+                image: "/assets/sieve.png",
+                description: "Music visualization tool for creating animated music videos",
+                url: "https://stereodrift.github.io"
+            },
+            {
+                title: "Living Grid",
+                image: "/assets/livingGrid.gif",
+                description: "Grid-based animations",
+                url: "https://collidingscopes.github.io/livinggrid/"
+            },
+            {
+                title: "Colliding Scopes",
+                image: "/assets/collidingScopes.gif",
+                description: "Turn photos into kaleidoscope animations",
+                url: "https://collidingscopes.github.io"
+            },
+        ];
+
+        const fragment = document.createDocumentFragment();
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <img src="${project.image}" alt="${project.title}" class="project-image">
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-desc">${project.description}</p>
+                <a href="${project.url}" class="project-link">VIEW PROJECT ></a>
+            `;
+            fragment.appendChild(card);
+        });
+        document.querySelector('.projects-grid').appendChild(fragment);
+    </script>
+</body>
+</html>
