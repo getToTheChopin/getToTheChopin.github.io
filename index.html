@@ -361,6 +361,12 @@
                 description: "Turn videos into pixel art animations",
                 url: "https://collidingscopes.github.io/video-to-pixel-art"
             },
+            {
+                title: "Manual Brick Breaker",
+                image: "/assets/manualBrickBreaker.png",
+                description: "Play brick breaker with your hands!",
+                url: "https://manual-brick-breaker.netlify.app"
+            },
         ];
 
         const fragment = document.createDocumentFragment();
@@ -371,7 +377,7 @@
                 <img src="${project.image}" alt="${project.title}" class="project-image">
                 <h3 class="project-title">${project.title}</h3>
                 <p class="project-desc">${project.description}</p>
-                <a href="${project.url}" class="project-link">VIEW PROJECT ></a>
+                <a href="${project.url}" class="project-link" rel="noopener" target="_blank">VIEW PROJECT ></a>
             `;
             fragment.appendChild(card);
         });
