@@ -1,0 +1,259 @@
+:root {
+    --primary: #2f00ff;
+    --secondary: #f5d7af;
+    /* --bg-dark: #0A0A0A; */
+    --bg-dark: rgb(10, 5, 23);
+    --bg-card: #141414;
+    --text: #FFFFFF;
+    --blur-strength: 3px;
+    --bloom-strength: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: monospace; */
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(rgba(243, 245, 175, 0.12) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(243, 245, 175, 0.12) 2px, transparent 2px);
+    background-size: 30px 30px;
+}
+
+@keyframes holoShimmer {
+    0%, 100% { text-shadow: 0 0 10px rgba(243, 245, 175, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 107, 0, 0.7); }
+}
+
+header {
+    padding: 2rem 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+    /* background: rgba(10, 10, 10, 0.8); */
+    background: var(--bg-dark);
+}
+
+.title {
+    font-size: 5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    /* animation: holoShimmer 3s ease-in-out infinite; */
+    will-change: text-shadow;
+
+    font-family: "Nabla", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "EDPT" 100,
+      "EHLT" 12;
+    /* font-family: "IBM Plex Mono", monospace;
+    font-weight: 700;
+    font-style: bold;
+    font-style: italic; */
+}
+
+.subtitle {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    max-width: 470px;
+    margin: 0 auto;
+    text-shadow: 0 0 var(--blur-strength) var(--secondary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.project-card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid var(--primary);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 
+        0 0 var(--bloom-strength) rgba(8, 0, 255, 0.8),
+        0 0 var(--blur-strength) var(--primary);
+}
+
+.project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        #10bb7a,
+        #116d91,
+        #9a0b98,
+        #9c1645
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    filter: blur(var(--blur-strength));
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 0 calc(var(--bloom-strength) * 3) rgba(8, 0, 255, 0.8),
+        0 0 calc(var(--blur-strength) * 3) var(--primary);
+}
+
+.project-card:hover::after {
+    opacity: 0.6;
+}
+
+.project-image {
+    width: 100%;
+    height: 350px;
+    background: #232323;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.project-title {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    /* text-shadow: 0 0 var(--blur-strength) var(--primary); */
+    font-weight: bold;
+}
+
+.project-desc {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.project-link {
+    color: var(--secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 0 0 calc(var(--blur-strength) * 0.5) var(--secondary);
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.project-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--secondary);
+    box-shadow: 0 0 5px var(--secondary);
+    transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
+    width: 100%;
+}
+
+/* Optional: you can add this to make the arrow move slightly on hover */
+.project-link span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover span {
+    transform: translateX(5px);
+}
+
+footer {
+    background: var(--bg-dark);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 3px solid var(--primary);
+    width: 100%;
+    overflow: hidden;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.social-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 var(--blur-strength) var(--primary);
+    white-space: nowrap;
+}
+
+.social-links a:hover {
+    color: var(--secondary);
+    text-shadow: 0 0 calc(var(--bloom-strength) * 1.5) var(--secondary);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-links a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.logo {
+  width: 50vw;
+  max-width: 400px;
+}
