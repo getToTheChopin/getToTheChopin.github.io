@@ -1,9 +1,15 @@
 const projects = [
     {
-        title: "The Measure of a Plan",
-        image: "/assets/TMOAP.gif",
-        description: "Free resources and tools for personal finance, visited by hundreds of thousands of people around the world",
-        url: "https://themeasureofaplan.com/"
+        title: "Red Panda Vibes",
+        image: "/assets/red-panda-vibes.gif",
+        description: "Panda exploration web game, built for #vibejam 2025",
+        url: "https://collidingscopes.github.io/red-panda-vibes"
+    },
+    {
+        title: "Fruit Ninja",
+        image: "/assets/fruit-ninja.png",
+        description: "Web game using computer vision and hand-tracking tech",
+        url: "https://collidingscopes.github.io/fruit-ninja"
     },
     {
       title: "Liquid Shape Distortions",
@@ -24,12 +30,6 @@ const projects = [
         url: "https://collidingscopes.github.io/particular-drift"
     },
     {
-        title: "Shades Drawn",
-        image: "/assets/shadesDrawn.png",
-        description: "Music inspired by the sounds of Hong Kong",
-        url: "https://www.youtube.com/@shades-drawn"
-    },
-    {
         title: "Video-to-ASCII",
         image: "/assets/ascii.gif",
         description: "Turn videos into ASCII pixel art",
@@ -40,6 +40,12 @@ const projects = [
         image: "/assets/shapeShimmer.gif",
         description: "Turn photos into funky wave animations",
         url: "https://collidingscopes.github.io/shimmer/"
+    },
+    {
+        title: "The Measure of a Plan",
+        image: "/assets/TMOAP.gif",
+        description: "Free resources and tools for personal finance, visited by hundreds of thousands of people around the world",
+        url: "https://themeasureofaplan.com/"
     },
     {
         title: "Image Mage",
@@ -54,12 +60,6 @@ const projects = [
         url: "https://stereodrift.github.io"
     },
     {
-        title: "Living Grid",
-        image: "/assets/livingGrid.gif",
-        description: "Grid-based animations",
-        url: "https://collidingscopes.github.io/livinggrid/"
-    },
-    {
         title: "Colliding Scopes",
         image: "/assets/collidingScopes.gif",
         description: "Turn photos into kaleidoscope animations",
@@ -72,10 +72,10 @@ const projects = [
         url: "https://collidingscopes.github.io/video-to-pixel-art"
     },
     {
-        title: "Manual Brick Breaker",
-        image: "/assets/manualBrickBreaker.png",
-        description: "Play brick breaker with your hands!",
-        url: "https://manual-brick-breaker.netlify.app"
+        title: "Shades Drawn",
+        image: "/assets/shadesDrawn.png",
+        description: "Music inspired by the sounds of Hong Kong",
+        url: "https://www.youtube.com/@shades-drawn"
     },
 ];
 
