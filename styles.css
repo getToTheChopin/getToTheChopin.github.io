@@ -74,17 +74,23 @@ header {
     text-shadow: 0 0 var(--blur-strength) var(--secondary);
 }
 
+#intro-para {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 18px;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0rem 1rem 2rem 1rem;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
     gap: 2rem;
-    padding: 1rem 0;
+    padding: 0;
 }
 
 .project-card {
