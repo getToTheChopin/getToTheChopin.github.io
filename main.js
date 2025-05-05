@@ -6,10 +6,10 @@ const projects = [
         url: "https://collidingscopes.github.io/red-panda-vibes"
     },
     {
-        title: "Fruit Ninja",
-        image: "/assets/fruit-ninja.png",
-        description: "Web game using computer vision and hand-tracking tech",
-        url: "https://collidingscopes.github.io/fruit-ninja"
+        title: "Acrobatic Arcade",
+        image: "/assets/acrobatic-arcade.png",
+        description: "Free Web games using computer vision and hand-tracking tech",
+        url: "https://collidingscopes.github.io/acrobatic-arcade"
     },
     {
       title: "Liquid Shape Distortions",
