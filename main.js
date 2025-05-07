@@ -1,5 +1,11 @@
 const projects = [
     {
+        title: "Am I A Banana?",
+        image: "/assets/banana.webp",
+        description: "Real-time banana detection; a computer vision game",
+        url: "https://amiabanana.netlify.app"
+    },
+    {
         title: "Red Panda Vibes",
         image: "/assets/red-panda-vibes.gif",
         description: "Panda exploration web game, built for #vibejam 2025",

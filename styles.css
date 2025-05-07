@@ -1,5 +1,5 @@
 :root {
-    --primary: #2f00ff;
+    --primary: #0084ff;
     --secondary: #f5d7af;
     /* --bg-dark: #0A0A0A; */
     --bg-dark: rgb(10, 5, 23);
@@ -77,7 +77,7 @@ header {
 #intro-para {
     text-align: center;
     padding: 20px 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .container {
