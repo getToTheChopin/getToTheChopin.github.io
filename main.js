@@ -1,5 +1,11 @@
 const projects = [
     {
+        title: "Threejs Shape Creator",
+        image: "/assets/shapecreator.png",
+        description: "create & control 3D shapes with real-time hand gestures",
+        url: "https://collidingscopes.github.io/shape-creator-tutorial/"
+    },
+    {
         title: "Am I A Banana?",
         image: "/assets/banana.webp",
         description: "Real-time banana detection; a computer vision game",
