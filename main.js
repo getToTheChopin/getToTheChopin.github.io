@@ -1,5 +1,11 @@
 const projects = [
     {
+        title: "3D Model Playground",
+        image: "/assets/modelplayground.png",
+        description: "control 3D models with voice & hand gestures",
+        url: "https://collidingscopes.github.io/3d-model-playground/"
+    },
+    {
         title: "Threejs Shape Creator",
         image: "/assets/shapecreator.png",
         description: "create & control 3D shapes with real-time hand gestures",
